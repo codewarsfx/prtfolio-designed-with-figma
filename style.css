@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Work+Sans:wght@400;700&display=swap');
+
+:root {
+  box-sizing: border-box;
+  --light: #97a0b6;
+  --text: #948fe3;
+  --dark: #373756;
+  --orange: #de677e;
+  --gradientStart: rgba(55, 55, 86, 0.9);
+  --gradientEnd: rgba(55, 55, 86, 0.7);
+  --ease: all 0.5s ease;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  /* background-color: var(--dark); */
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'topwrapper';
+}
+
+a,
+i,
+p {
+  text-decoration: none;
+  color: var(--light);
+}
+
+h1 {
+  color: var(--text);
+  font-size: 72px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  margin-top: 25px;
+}
+
+.topwrapper {
+  grid-area: topwrapper;
+  background-image: linear-gradient(
+      to right,
+      var(--gradientStart),
+      var(--gradientEnd)
+    ),
+    url(new-image-back.jpg);
+  height: 100vh;
+  display: grid;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 600px 600px 1fr;
+  grid-template-areas: '. content profile .';
+  /* grid-gap: 50px; */
+}
+
+.content {
+  grid-area: content;
+  align-self: center;
+  justify-self: self;
+}
+.content p {
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-bottom: 0;
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.content span {
+  position: relative;
+}
+.content span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  border: 1.5px solid var(--orange);
+  animation: line 2s ease;
+  animation-fill-mode: forwards;
+}
+@keyframes line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.content__image {
+  grid-area: profile;
+  height: 526px;
+  width: 526px;
+  align-self: center;
+  justify-self: center;
+  background-image: url(gool.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-left: 110px;
+}
+
+.content__socialMedia {
+  display: flex;
+  /* align-items: center; */
+}
+.content__social {
+  display: flex;
+  align-items: center;
+}
+.content__social a {
+  font-size: 18px;
+  color: var(--light);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  transition: var(--ease);
+}
+.content__social i {
+  font-size: 25px;
+  margin-right: 5px;
+}
+.content__social a:hover {
+  filter: brightness(250%);
+}
+
+.content__social:not(:first-child) {
+  margin-left: 48px;
+}
